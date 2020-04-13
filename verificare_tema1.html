@@ -1,0 +1,49 @@
+<html>
+
+<body>
+
+<script>
+
+console.log("*******************Exercitiul 2*******************")
+
+const raza = 10;
+const PI = 3.14;
+const aria = PI * raza **2;
+console.log("Aria cercului este: ", aria)
+
+console.log('')
+console.log("*******************Exercitiul 3*******************")
+
+const movies = ["Amy", "JFK", "RED", "Ali", "Up"];
+for(let i=0; i < movies.length; i++){
+    console.log(`Pe pozitia ${i+1} avem filmul cu titlul ${movies[i]}`);
+}
+
+console.log('')
+console.log("*******************Exercitiul 4*******************")
+
+const numere = [5, 3, "1", 7, "9", 30, "45", 7];
+let min = numere[0];
+let max = numere[0];
+
+for (let i = 1; i < numere.length; i++) {
+    if(max < numere[i]){
+        max = numere[i];
+    }
+
+    if(min > numere[i]){
+        min = numere[i];
+    }
+}
+console.log("Maximul este: ", max);
+console.log("Minimul este: ", min);
+
+
+
+
+
+</script>
+
+</body> 
+
+</html>

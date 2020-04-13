@@ -1,0 +1,52 @@
+<html>
+
+<body>
+
+<script>
+
+let r1 = 10;
+const PI = 3.1415;
+//let r1p = r1 ** 2;
+
+console.log ("Aria unui cerc cu raza de " + r1 + "cm este egala cu " + r1 * r1 * PI + ' cm patrati');
+//console.log ("Aria unui cerc cu raza de " + r1 + "cm este egala cu " + PI * r1p + ' cm patrati');
+
+console.log (" ")
+var movies = ["Amy", "JFK", "RED", "Ali", "Up"];
+console.log ("Lista filme:")
+
+for (var key = 0; key <=4; key++) {
+console.log (key +1 + ". " + movies[key])
+ }
+
+console.log (" ")
+const minmax = [5, 3, "1", 7, "9", 30, "45", 7, 60];
+let min = minmax[0], max = minmax[0];
+
+// if (minmax[0] < minmax[1]){
+//         min = minmax[0];
+//     }else min = minmax[1];
+
+for (let key = 0; key < minmax.length; key++) {
+    if (minmax[key] < min)
+        min = minmax[key];
+       }
+console.log ('Cel mai mic numar din tabela este: ' + min);
+
+// if (minmax[0] > minmax[1]){
+//         max = minmax[0];
+//     }else max = minmax[1];
+
+for (let key = 0; key < minmax.length; key++) {
+    if (minmax[key] > max)
+        max = minmax[key];
+       }
+console.log ('Cel mai mare numar din tabela este: ' + max);
+
+
+
+</script>
+
+</body> 
+
+</html>

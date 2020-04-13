@@ -1,0 +1,257 @@
+<html>
+
+<body>
+
+<script>
+
+console.log('');
+console.log('************************* Exercitiul 1 *****************************')
+console.log('');
+// Folosind switch statement transformati urmatoarea suma din 749 RON in EUR, HUF, USD.
+
+let SumaRon = 749;
+let CursRonEUR = 0.2071;
+let CursRonHUF = 75.4945;
+let CursRonUSD = 0.2238;
+const Valute = ['EUR', 'HUF', 'USD'];
+
+for (let i=0; i<= Valute.length; i++){
+    switch (Valute[i]){
+        case 'EUR':
+            console.log (SumaRon +' Ron = ' + (SumaRon * CursRonEUR).toFixed(2) + ' EUR');
+            break;
+        case 'HUF':
+            console.log (SumaRon +' Ron = ' + (SumaRon * CursRonHUF).toFixed(2) + ' HUF');
+            break;
+        case 'USD':
+            console.log (SumaRon +' Ron = ' + (SumaRon * CursRonUSD).toFixed(2) + ' USD');
+            break;
+
+    }
+}
+console.log('');
+console.log('************************* Exercitiul 2 *****************************')
+console.log('');
+// Scrieti o functie care primeste un parametru si returneaza tipul acestuia.
+// Hint: Vezi https://js-documentation.herokuapp.com/ sectiunea Operators → Types.
+
+function TipPar (param){
+    console.log(param + ' este un parametru de tip ' + typeof param);
+    return typeof param;
+}
+    
+TipPar(2);
+TipPar(3.9546);
+TipPar('test');
+TipPar(true);
+TipPar(Valute);
+
+
+console.log('');
+console.log('************************* Exercitiul 3 *****************************')
+console.log('');
+// Scrieti o functie javascript care accepta ca parametru un string care
+// ia fiecare cuvant in parte si ii extrage prima litera, dupa care 
+// concateneaza literele extrase
+// "Universitatea Tehnica Cluj Napoca" => UTCN
+
+// Se da array-ul urmator:
+
+const fraze = [
+"Quisque faucibus ipsum id nibh egestas bibendum.",
+"Phasellus tincidunt sapien nec est tempus lacinia.",
+"Curabitur ac elit at turpis ultrices hendrerit at et tellus.",
+"Praesent a magna a ligula gravida sodales eu ut erat.",
+"Ut eleifend velit vitae ipsum mattis viverra."
+]
+
+// Transformati fiecare valoare din array-ul de mai sus cu functia definita anterior
+//const fraza = "Universitatea Tehnica Cluj Napoca"
+
+function acronim(str){
+    let separare = str.split(" ");
+    let acron = "";
+        for(let k = 0; k < separare.length; k++) {
+        //console.log(separare[k].charAt(0))
+        acron = (acron + separare[k].charAt(0));
+    }
+    console.log(acron.toUpperCase());
+}
+
+for(i = 0; i < fraze.length; i++) {
+    acronim(fraze[i]);
+}
+
+console.log('');
+console.log('************************* Exercitiul 4 *****************************')
+console.log('');
+
+// Declarati o clasa Shape care sa contina urmatoarele proprietati si metode
+// Proprietati:
+//     culoare
+//     array care sa contina laturile (eg [4,3,5])
+
+// Metode:
+//     perimetru
+//     semiperimetru
+//     tipul poigonului
+//         trighiuni 3 laturi,
+//         patrulater 4 laturi
+//         pentagon 5 laturi
+//         hexagon 6 laturi
+//         daca contine mai multe sau mai putine laturi, WORK IN PROGRESS
+
+// Creati o instanta si afisati:
+//     tipul poligonului
+//     culoarea
+//     perimetru
+//     semiperimetru
+
+
+class Shape{
+    constructor(culoare, laturi){
+        this.culoare = culoare;
+        this.laturi = laturi;
+    }
+    Perimetru(){
+        let perim = 0;
+        for(i = 0; i < this.laturi.length; i++){
+        perim = (perim + this.laturi[i]);
+        }
+        return perim;
+        //console.log(perim);
+    }
+    Semiper(){
+        let perim = 0;
+        for(i = 0; i < this.laturi.length; i++){
+        perim = (perim + this.laturi[i]);
+        }
+        return perim / 2;
+    }
+    TipPoligon(){
+        if (this.laturi.length <= 6){
+            switch (this.laturi.length){
+            case 3:
+                //console.log('Poligonul este un triunghi');
+                return 'triunghi';
+                break;
+            case 4:
+                return 'patrulater';
+                break;
+            case 5:
+                return 'pentagon';
+                break;
+            case 6:
+                return 'hexagon';
+                break;
+            }
+        } else {
+                return  (this.laturi.length + ' laturi');
+        }
+    }
+}
+
+const shape1 = new Shape ('albastru',[4,3,5]);
+console.log('Poligonul este un ' + shape1.TipPoligon() +' '+ shape1.culoare);
+console.log('Perimetrul este: ' + shape1.Perimetru());
+console.log('Semiperimetrul este: ' + shape1.Semiper());
+console.log('');
+
+const shape2 = new Shape ('galben',[4,3,5,6,8]);
+console.log('Poligonul este un ' + shape2.TipPoligon() +' '+ shape2.culoare);
+console.log('Perimetrul este: ' + shape2.Perimetru());
+console.log('Semiperimetrul este: ' + shape2.Semiper());
+console.log('');
+
+const shape3 = new Shape ('galben',[4,3,5,6,8,7,5]);
+console.log('Poligon cu ' + shape3.TipPoligon() +' '+ shape2.culoare);
+console.log('Perimetrul este: ' + shape3.Perimetru());
+console.log('Semiperimetrul este: ' + shape3.Semiper());
+
+console.log('');
+console.log('************************* Exercitiul 5 *****************************')
+console.log('');
+
+// Creati doua clase care pot extinde clasa Shape, 
+//in template-ul acestor clase, implementati metoda aria.
+// Creati doua instante si afisati:
+
+//     tipul poligonului
+//     perimetrul
+//     semiperimetrul
+//     aria
+//     culoarea
+
+// Adaugati rezolvarea temei pe GIT.
+
+
+class Dreptunghi extends Shape{
+    constructor (culoare, latura1, latura2, laturi){
+        super(culoare);
+        this.latura1 = latura1;
+        this.latura2 = latura2;
+        this.laturi = [latura1, latura2, latura1, latura2];
+    }   
+    TipPoligon(){
+        return 'dreptunghi';
+    }
+    arie(){
+        return this.laturi[0] * this.laturi[1];
+    }
+}
+
+class Patrat extends Dreptunghi{
+    constructor (culoare, latura1, laturi){
+        super(culoare);
+        this.latura1 = latura1;
+        this.laturi = [latura1, latura1, latura1, latura1];
+    }   
+    TipPoligon(){
+        return 'patrat';
+    }
+}
+
+const drept1 = new  Dreptunghi('rosu', 5, 7)
+const patrat1 = new Patrat('negru',5);
+
+
+console.log('Poligonul este un ' + patrat1.TipPoligon() +' '
+            + patrat1.culoare + ', cu petrimetrul de ' + patrat1.Perimetru() +' si cu aria de ' + patrat1.arie());
+console.log('Poligonul este un ' + drept1.TipPoligon() +' '
+            + drept1.culoare + ', cu petrimetrul de ' + drept1.Perimetru() +' si cu aria de ' + drept1.arie());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body> 
+
+</html>

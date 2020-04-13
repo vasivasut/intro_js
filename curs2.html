@@ -1,0 +1,173 @@
+<html>
+<body>
+<script>
+
+console.log('')
+console.log('***************Obiecte*****************')
+
+    const tabel = ["Audi", "Bugatti", "Lambo", "Dacia"];
+    console.log(tabel);
+
+    let obiect = {'marca': 'Audi',
+                 'model': 'RS',
+                 'year': '2015',
+                 'mileage': '20000',
+                 'color': 'blue'
+    };
+
+    console.log('')
+    console.log(obiect['marca'] + ' ' + obiect['model'] + ' ' + obiect.color);
+
+console.log('')
+console.log('***************Do/While*****************')
+let randomNumber = Math.floor(Math.random() * 11);
+let secretNumber = Math.floor(Math.random() * 11);
+
+console.log('')
+console.log('Random number e '+ randomNumber);
+console.log('Secret number e '+ secretNumber);
+console.log('')
+
+// while (secretNumber !== randomNumber){
+//     console.log('Am incercat numarul' + randomNumber);
+//     randomNumber = Math.floor(Math.random() * 11);
+// }
+
+do { 
+    console.log('Am incercat numarul ' + randomNumber);
+    randomNumber = Math.floor(Math.random() * 11);
+}while (secretNumber !== randomNumber);
+
+console.log('Intr-un final, l-am gasit, este ' + randomNumber);
+
+
+console.log('')
+console.log('***************Functii*****************')
+
+function functieTest(x, y) {
+    console.log (x+y);
+}
+functieTest(4,2);
+
+
+function produs(x, y){
+    return x * y;
+}
+console.log (produs(3,4))
+console.log('Functie produs '+ produs(2, 55));
+console.log('')
+
+let z = 1;
+let y = 2;
+
+if (z< y){
+    let z = 22;
+    let y = 11;
+    console.log('In interior IF, z are valoare ' + z + ', iar y are valoare ' + y)
+}
+
+console.log('')
+console.log('***************Clase*****************')
+
+        class Car{
+            constructor (marca){
+                this.make = marca
+            }
+            setTransmision(){
+                this.transmision = 'Manual'
+            }
+        }
+
+    let masinaMea = new Car('Peugeot');
+    masinaMea.setTransmision();
+    console.log(masinaMea)
+
+console.log('')
+
+        class Person {
+            constructor (name, age, location){
+                this.name = name;
+                this.age = age
+                this.location = location;
+            }
+            sayHello() {
+                console.log('Hello ' + this.name)
+            }
+            saySomethingAboutMyAge(){
+                if (this.age > 25){
+                    console.log(this.name + ' e batran.');
+                } else {
+                    console.log(this.name + ' tu esti ok!');
+                }
+            }
+        }
+
+        const alex = new Person ("Alex", 27, "Baia Mare")
+        const vlad = new Person ("Vlad", 16, "Buzau")
+
+        console.log(alex, vlad);
+        alex.sayHello();
+        console.log('')
+        alex.saySomethingAboutMyAge();
+        vlad.saySomethingAboutMyAge();
+
+
+
+class Triunghi{
+    constructor(latura1, latura2, latura3){
+        this.latura1 = latura1;
+        this.latura2 = latura2;
+        this.latura3 = latura3;
+    }
+    calculeazaPerimetru() {
+        return this.latura1 + this.latura2 + this.latura3;
+    }
+}
+const tri1 = new Triunghi (2, 5, 4);
+console.log('')
+console.log('Perimetru triunghiului tri1 este ' + tri1.calculeazaPerimetru())
+
+class TriEchilateral extends Triunghi {
+    constructor(latura) {
+        super(latura, latura, latura);
+        this.latura = latura;
+            }
+    arie() {
+        return (this.latura ** 2 * Math.sqrt(3)) /4;       
+    }
+    arieRotunjita() {
+        // const arie = (this.latura ** 2 * Math.sqrt(3)) /4;
+        // return Math.round(arie);
+        return Math.round(this.arie());
+    }
+}
+
+const triechi1 = new TriEchilateral (3);
+console.log(triechi1.calculeazaPerimetru());
+console.log ('Aria triechi1 este '+ triechi1.arie ());
+console.log ('Aria triechi1 rotunjita este '+ triechi1.arieRotunjita ());
+
+
+
+class TriIsoscel extends Triunghi {
+    constructor(latura1, latura2, latura3) {
+        super(latura1, latura2, latura3);
+        if (latura1 === latura2 || 
+            latura2 === latura3 ||
+            latura3 === latura1
+            ){
+            console.log ('triunghiul este isoscel')    
+        }else {
+            throw new Error ('Triunghiul nu este isoscel');
+            //console.log ('Triunghiul nu este isoscel');
+        }      
+    } 
+}
+const triisosc1 = new TriIsoscel(4, 3, 4);
+
+
+</script>
+
+</body> 
+
+</html>
